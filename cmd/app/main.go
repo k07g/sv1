@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+
+	"github.com/k07g/sv1/internal/app"
+)
 
 func main() {
-	fmt.Println("sv1 started")
+	cmd := app.NewRootCmd()
+	if err := cmd.Execute(); err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
 }

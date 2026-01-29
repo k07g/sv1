@@ -2,17 +2,15 @@ package app
 
 import "github.com/spf13/cobra"
 
-func NewRootCmd() *cobra.Command {
+func NewHTTPCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "sv1",
-		Short: "CLI tool for app",
-		Long:  `Sv1 is a CLI tool`,
+		Use:   "http",
+		Short: "CLI HTTP server",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) == 0 {
 				cmd.HelpFunc()(cmd, args)
 			}
 		},
 	}
-	cmd.AddCommand(NewHTTPCmd())
 	return cmd
 }
