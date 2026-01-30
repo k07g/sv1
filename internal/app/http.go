@@ -1,6 +1,9 @@
 package app
 
-import "github.com/spf13/cobra"
+import (
+	"github.com/k07g/sv1/internal/pkg/infrastructure/http"
+	"github.com/spf13/cobra"
+)
 
 func NewHTTPCmd() *cobra.Command {
 	cmd := &cobra.Command{
@@ -12,5 +15,12 @@ func NewHTTPCmd() *cobra.Command {
 			}
 		},
 	}
+	cmd.AddCommand(&cobra.Command{
+		Use:   "run",
+		Short: "Run HTTP server",
+		Run: func(cmd *cobra.Command, args []string) {
+			http.Run()
+		},
+	})
 	return cmd
 }
