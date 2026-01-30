@@ -9,13 +9,22 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/caarlos0/env/v11"
+	"github.com/k07g/sv1/internal/pkg/infrastructure"
 )
 
 func Run() {
+	cfg := &infrastructure.Config{}
+	if err := env.Parse(cfg); err != nil {
+		panic(err)
+	}
+	fmt.Println("Port:", cfg.Port, "Environment:", cfg.Environment)
+
 	ctx, cancel := context.WithTimeout(context.Background(), 3000*time.Second)
 	defer cancel()
 
-	addr := fmt.Sprintf(":%s", "8081")
+	addr := fmt.Sprintf(":%s", cfg.Port)
 	server := http.Server{
 		Addr:              addr,
 		ReadHeaderTimeout: 10 * time.Second,
