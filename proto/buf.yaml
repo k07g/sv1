@@ -1,0 +1,18 @@
+version: v1
+name: buf.build/k07g/sv1
+breaking:
+  ignore_unstable_packages: false
+  use:
+    - FILE
+lint:
+  allow_comment_ignores: false
+  enum_zero_value_suffix: _UNSPECIFIED
+  rpc_allow_same_request_response: false
+  rpc_allow_google_protobuf_empty_requests: false
+  rpc_allow_google_protobuf_empty_responses: false
+  service_suffix: Service
+  use:
+    - STANDARD
+deps:
+  - buf.build/googleapis/googleapis
+  - buf.build/grpc-ecosystem/grpc-gateway
