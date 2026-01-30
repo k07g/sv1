@@ -6,11 +6,13 @@ test:
 	$(info ******************** running tests ********************)
 	@go test -v ./...
 
-lint:
-	$(info ******************** running lint tools ********************)
-	@go run github.com/golangci/golangci-lint/cmd/golangci-lint run -v
+lint: lint-go lint-buf
 
 build: gen-buf
+
+lint-go:
+	$(info ******************** running lint tools for Go ********************)
+	@go run github.com/golangci/golangci-lint/cmd/golangci-lint run
 
 gen-buf:
 	$(info ******************** generating buf ********************)
@@ -18,4 +20,4 @@ gen-buf:
 
 lint-buf:
 	$(info ******************** running lint tool for buf ********************)
-	go run github.com/bufbuild/buf/cmd/buf lint
+	@go run github.com/bufbuild/buf/cmd/buf lint

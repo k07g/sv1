@@ -6,8 +6,16 @@ managed:
     except:
       - buf.build/googleapis/googleapis
       - buf.build/grpc-ecosystem/grpc-gateway
+
 plugins:
-  - out: ./internal/pkg/infrastructure/grpc/pb
-    plugin: buf.build/protocolbuffers/go
+  - plugin: buf.build/protocolbuffers/go
+    out: ./internal/pkg/infrastructure/grpc/pb
     opt:
       - paths=source_relative
+
+  - plugin: buf.build/grpc/go
+    out: ./internal/pkg/infrastructure/grpc/pb
+    opt:
+      - paths=source_relative
+      - require_unimplemented_servers=false
+
