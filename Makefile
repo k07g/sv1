@@ -13,6 +13,7 @@ build: gen-buf
 fmt:
 	@go fmt ./...
 	@go run github.com/bufbuild/buf/cmd/buf format -w
+	@go run golang.org/x/tools/cmd/goimports -w ./
 
 lint-go:
 	$(info ******************** running lint tools for Go ********************)
