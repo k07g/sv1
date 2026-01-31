@@ -14,6 +14,7 @@ fmt:
 	@go fmt ./...
 	@go run github.com/bufbuild/buf/cmd/buf format -w
 	@go run golang.org/x/tools/cmd/goimports -w ./
+	@go run mvdan.cc/gofumpt -l -w .
 
 lint-go:
 	$(info ******************** running lint tools for Go ********************)
