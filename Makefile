@@ -9,6 +9,8 @@ test:
 lint: lint-go lint-buf
 
 build: gen-buf
+	$(info ******************** building binary ********************)
+	@go build -o ./bin/sv1 ./cmd/app
 
 fmt:
 	@go fmt ./...
