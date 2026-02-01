@@ -11,6 +11,8 @@ import (
 	sync "sync"
 	unsafe "unsafe"
 
+	_ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
@@ -114,13 +116,16 @@ var File_public_v1_greeter_proto protoreflect.FileDescriptor
 
 const file_public_v1_greeter_proto_rawDesc = "" +
 	"\n" +
-	"\x17public/v1/greeter.proto\x12\tpublic.v1\"%\n" +
+	"\x17public/v1/greeter.proto\x12\tpublic.v1\x1a\x1cgoogle/api/annotations.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"3\n" +
 	"\x0fSayHelloRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\",\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name:\f\x92A\t\n" +
+	"\a\xd2\x01\x04name\"=\n" +
 	"\x10SayHelloResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage2U\n" +
-	"\fGreetService\x12E\n" +
-	"\bSayHello\x12\x1a.public.v1.SayHelloRequest\x1a\x1b.public.v1.SayHelloResponse\"\x00B\xb0\x01\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage:\x0f\x92A\f\n" +
+	"\n" +
+	"\xd2\x01\amessage2m\n" +
+	"\fGreetService\x12]\n" +
+	"\bSayHello\x12\x1a.public.v1.SayHelloRequest\x1a\x1b.public.v1.SayHelloResponse\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\"\r/v1/say_helloB\xb0\x01\n" +
 	"\rcom.public.v1B\fGreeterProtoP\x01ZJgithub.com/k07g/sv1/internal/pkg/infrastructure/grpc/pb/public/v1;publicv1\xa2\x02\x03PXX\xaa\x02\tPublic.V1\xca\x02\n" +
 	"Public_\\V1\xe2\x02\x16Public_\\V1\\GPBMetadata\xea\x02\n" +
 	"Public::V1b\x06proto3"

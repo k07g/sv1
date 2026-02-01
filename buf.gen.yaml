@@ -19,3 +19,21 @@ plugins:
       - paths=source_relative
       - require_unimplemented_servers=false
 
+  - plugin: buf.build/grpc-ecosystem/gateway
+    out: ./internal/pkg/infrastructure/grpc/pb
+    opt:
+      - generate_unbound_methods=true
+      - logtostderr=true
+      - paths=source_relative
+      - allow_delete_body=true
+
+  - plugin: buf.build/grpc-ecosystem/openapiv2
+    out: ./docs/openapi
+    opt:
+      - logtostderr=true
+      - allow_merge=false
+      - simple_operation_ids=true
+      - json_names_for_fields=false
+      - disable_default_errors=true
+      - allow_delete_body=true
+      
