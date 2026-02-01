@@ -3,6 +3,7 @@ syntax = "proto3";
 package public.v1;
 
 import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 
 service GreetService {
   rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {
@@ -15,7 +16,19 @@ service GreetService {
 
 message SayHelloRequest {
   string name = 1;
+
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      required: ["name"]
+    }
+  };
 }
 message SayHelloResponse {
   string message = 1;
+
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      required: ["message"]
+    }
+  };
 }
